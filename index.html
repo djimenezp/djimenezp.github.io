@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Borow Calendar</title>
+    <script src="./dist/borow-calendar.mjs"></script>
+    <link rel="stylesheet" href="./dist/borow-calendar.css">
+</head>
+<body>
+<h1>Calendar</h1>
+<!-- Input to display and edit the selected date -->
+
+<div style="width: 263px;">
+    <form style="display: flex;  flex-direction: column;">
+    <label for="input-sku">SKU</label>
+    <input style="margin: 5px 0" type="text" name="sku" id="input-sku" value="ROT0212018-S/36-3">
+    <label for="input-days">Days</label>
+    <input style="margin: 5px 0" type="text" name="days" id="input-days" value="4">
+    <label for="input-type">Type</label>
+    <input style="margin: 5px 0" type="text" name="type" id="input-type" value="unit">
+</form>
+    <borow-calendar id="borow-calendar" sku="ROT0212018-S/36-3" days="4" type="unit"
+                    params='{"type":"unit", "sku": "ROT0212018-S/36-3", "days": "4"}'>
+    </borow-calendar>
+</div>
+
+<script>
+    // Get references to the input and web component
+    const calendar = document.querySelector('#borow-calendar');
+    skuImput = document.querySelector('#input-sku');
+    daysInput = document.querySelector('#input-days');
+    typeInput = document.querySelector('#input-type');
+    skuImput.addEventListener('input', (event) => {
+            calendar.sku = event.target.value;
+        });
+    daysInput.addEventListener('input', (event) => {
+            calendar.days = event.target.value;
+        });
+    typeInput.addEventListener('input', (event) => {
+            calendar.type = event.target.value;
+        });
+</script>
+</body>
+</html>
